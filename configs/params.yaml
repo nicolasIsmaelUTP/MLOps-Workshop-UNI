@@ -1,0 +1,34 @@
+# ==============================================================
+# Hiperparámetros y configuración del proyecto
+# ==============================================================
+# Centralizar parámetros aquí evita valores "hardcodeados"
+# dispersos en el código fuente.
+# ==============================================================
+
+data:
+  raw_path: "data/raw/concrete_data.csv"
+  processed_path: "data/processed/concrete_processed.csv"
+  test_size: 0.2
+  random_state: 42
+
+model:
+  type: "RandomForestRegressor"
+  n_estimators: 100
+  max_depth: 15
+  random_state: 42
+
+output:
+  model_path: "models/modelo_concreto.joblib"
+  metrics_path: "models/metricas.json"
+
+features:
+  - cement
+  - blast_furnace_slag
+  - fly_ash
+  - water
+  - superplasticizer
+  - coarse_aggregate
+  - fine_aggregate
+  - age
+
+target: "concrete_compressive_strength"

@@ -168,6 +168,38 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# ============================
+# Taller MLOps UNI - Extras
+# ============================
+
+# Variables de entorno reales
+.env
+
+# Datos pesados (gestionados por DVC)
+data/raw/*.csv
+data/processed/*.csv
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Modelos serializados
+models/*.pkl
+models/*.joblib
+models/*.pt
+models/*.h5
+
+# DVC cache
+/data/raw/*.csv.dvc
+/data/processed/*.csv.dvc
+
+# Docker - modelo copiado para build
+despliegue/modelo/
+
+# Soluciones del profesor (NUNCA subir a GitHub)
+soluciones_profesor/
+
+# Documentación interna del docente
+.docs/
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore

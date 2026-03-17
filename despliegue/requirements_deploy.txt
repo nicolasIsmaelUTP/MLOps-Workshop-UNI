@@ -1,0 +1,13 @@
+# ==============================================================
+# Dependencias mínimas de producción
+# ==============================================================
+# Solo lo estrictamente necesario para servir predicciones.
+# NO incluye jupyter, matplotlib, dvc ni herramientas de desarrollo.
+# ==============================================================
+
+scikit-learn==1.6.1
+joblib==1.4.2
+pandas==2.2.3
+numpy==1.26.4
+fastapi==0.115.12
+uvicorn==0.34.0
