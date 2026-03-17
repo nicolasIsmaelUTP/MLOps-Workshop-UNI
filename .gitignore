@@ -178,8 +178,10 @@ cython_debug/
 # Datos pesados (gestionados por DVC)
 data/raw/*.csv
 data/processed/*.csv
+data/external/*.csv
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/external/.gitkeep
 
 # Modelos serializados
 models/*.pkl
@@ -190,6 +192,7 @@ models/*.h5
 # DVC cache
 /data/raw/*.csv.dvc
 /data/processed/*.csv.dvc
+/data/external/*.csv.dvc
 
 # Docker - modelo copiado para build
 despliegue/modelo/
