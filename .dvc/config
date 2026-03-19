@@ -1,0 +1,2 @@
+['remote "mi_remoto"']
+    url = ../.dvc_remote

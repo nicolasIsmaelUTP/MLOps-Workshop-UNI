@@ -193,6 +193,9 @@ models/*.h5
 # (La cache y temporales de DVC se gestionan en .dvc/.gitignore)
 # No ignores los archivos *.dvc (son punteros que deben versionarse con Git)
 
+# Local DVC remote (simulación) — carpeta dentro del repo (Git la ignorará)
+.dvc_remote/
+
 # Docker - modelo copiado para build
 despliegue/modelo/
 
