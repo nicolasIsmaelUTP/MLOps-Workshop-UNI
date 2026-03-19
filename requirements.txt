@@ -17,6 +17,9 @@ joblib==1.4.2
 # Versionamiento de datos
 dvc==3.59.1
 
+# Experiment tracking
+mlflow==3.10.1
+
 # Notebooks
 jupyter==1.1.1
 notebook==7.3.3
