@@ -1,2 +1,4 @@
+[core]
+    remote = mi_remoto
 ['remote "mi_remoto"']
     url = ../.dvc_remote
