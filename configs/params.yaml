@@ -6,8 +6,6 @@
 # ==============================================================
 
 data:
-  raw_path: "data/raw/concrete_data.csv"
-  processed_path: "data/processed/concrete_processed.csv"
   test_size: 0.2
   random_state: 42
 
