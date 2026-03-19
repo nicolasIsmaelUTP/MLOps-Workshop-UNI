@@ -190,9 +190,8 @@ models/*.pt
 models/*.h5
 
 # DVC cache
-/data/raw/*.csv.dvc
-/data/processed/*.csv.dvc
-/data/external/*.csv.dvc
+# (La cache y temporales de DVC se gestionan en .dvc/.gitignore)
+# No ignores los archivos *.dvc (son punteros que deben versionarse con Git)
 
 # Docker - modelo copiado para build
 despliegue/modelo/
