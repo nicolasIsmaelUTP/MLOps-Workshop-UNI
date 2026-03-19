@@ -15,7 +15,7 @@ seaborn==0.13.2
 joblib==1.4.2
 
 # Versionamiento de datos
-dvc==3.59.1
+dvc==3.67.0
 
 # Experiment tracking
 mlflow==3.10.1
