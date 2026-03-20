@@ -8,7 +8,7 @@ import json
 import sys
 from pathlib import Path
 
-import joblib
+import cloudpickle
 import mlflow
 import mlflow.sklearn
 import numpy as np
@@ -30,7 +30,7 @@ from config import (  # noqa: E402
     MODEL_RANDOM_STATE, MLFLOW_EXPERIMENT, MLFLOW_TRACKING_URI,
     N_ESTIMATORS, RANDOM_STATE, RAW_DATA_DIR, REPORTS_DIR, TARGET, TEST_SIZE,
 )
-from features import build_features  # noqa: E402
+import features
 from plots import plot_predicted_vs_actual  # noqa: E402
 
 
@@ -41,7 +41,7 @@ def _build_pipeline() -> Pipeline:
         Pipeline configurado con los hiperparámetros de config.py.
     """
     return Pipeline([
-        ("features", FunctionTransformer(build_features)),
+        ("features", FunctionTransformer(features.build_features)),
         ("scaler", StandardScaler()),
         ("model", RandomForestRegressor(
             n_estimators=N_ESTIMATORS,
@@ -55,6 +55,7 @@ def main() -> None:
     """Carga datos, entrena el Pipeline y loguea el experimento en MLflow."""
     mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     mlflow.set_experiment(MLFLOW_EXPERIMENT)
+    cloudpickle.register_pickle_by_value(features)
 
     df = pd.read_csv(RAW_DATA_DIR / "concrete_data.csv")
     df.columns = df.columns.str.strip()
@@ -101,7 +102,8 @@ def main() -> None:
 
         model_path = MODELS_DIR / "modelo_concreto.joblib"
         model_path.parent.mkdir(parents=True, exist_ok=True)
-        joblib.dump(pipeline, model_path)
+        with open(model_path, "wb") as model_file:
+            cloudpickle.dump(pipeline, model_file)
 
         metrics_path = REPORTS_DIR / "metricas.json"
         metrics_path.parent.mkdir(parents=True, exist_ok=True)

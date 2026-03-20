@@ -8,10 +8,6 @@
 
 FROM python:3.10-slim
 
-# Metadata
-LABEL maintainer="Taller MLOps UNI"
-LABEL description="API de predicción de resistencia del concreto"
-
 # Evitar prompts interactivos y buffering de Python
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
@@ -26,7 +22,9 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 # Copiar el código de la API y el modelo serializado
 COPY app.py .
-COPY modelo/modelo_concreto.joblib modelo/modelo_concreto.joblib
+COPY schemas.py .
+COPY utils.py .
+COPY model.pkl .
 
 # Exponer el puerto de la API
 EXPOSE 8000
